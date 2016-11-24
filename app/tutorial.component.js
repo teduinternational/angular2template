@@ -15,7 +15,7 @@ var TutorialComponent = (function () {
     TutorialComponent = __decorate([
         core_1.Component({
             selector: 'my-tutorial',
-            template: '<h2>This TEDU Angular2 Tutorial component</h2>'
+            template: "<h2>This TEDU Angular2 Tutorial component</h2>\n              <h4>Sub Component</h4>\n    "
         }), 
         __metadata('design:paramtypes', [])
     ], TutorialComponent);
