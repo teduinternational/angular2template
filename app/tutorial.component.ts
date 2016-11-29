@@ -4,14 +4,14 @@ import {Component} from '@angular/core';
     selector:'my-tutorial',
     template:`
     <h2>{{title}}</h2>
-    <button (click)="OnClick($event)">Click me</button>
-    <input type="text" #name />
+    <input type="text" [(ngModel)] = "fname" />
+   <input type="text" [(ngModel)] = "lname" />
+   <br>
+   Full name: {{fname}} {{lname}}
     `
 })
 export class TutorialComponent{
     public title = "This TEDU Angular2 Tutorial component";
 
-    OnClick(value){
-        console.log(value); 
-    }
+    
 }

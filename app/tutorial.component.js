@@ -13,13 +13,10 @@ var TutorialComponent = (function () {
     function TutorialComponent() {
         this.title = "This TEDU Angular2 Tutorial component";
     }
-    TutorialComponent.prototype.OnClick = function (value) {
-        console.log(value);
-    };
     TutorialComponent = __decorate([
         core_1.Component({
             selector: 'my-tutorial',
-            template: "\n    <h2>{{title}}</h2>\n    <button (click)=\"OnClick($event)\">Click me</button>\n    <input type=\"text\" #name />\n    "
+            template: "\n    <h2>{{title}}</h2>\n    <input type=\"text\" [(ngModel)] = \"fname\" />\n   <input type=\"text\" [(ngModel)] = \"lname\" />\n   <br>\n   Full name: {{fname}} {{lname}}\n    "
         }), 
         __metadata('design:paramtypes', [])
     ], TutorialComponent);
