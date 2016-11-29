@@ -12,14 +12,11 @@ var core_1 = require('@angular/core');
 var AppComponent = (function () {
     function AppComponent() {
         this.title = "TEDU Channel";
-        //property binding
-        this.image = "http://lorempixel.com/300/300";
-        this.welcomeText = "Welcome to Angular 2 for Beginers";
     }
     AppComponent = __decorate([
         core_1.Component({
             selector: 'my-app',
-            template: "\n  <h1>Helo {{title}}!</h1>\n  <img [src]=\"image\"/>\n  <my-tutorial></my-tutorial>\n  <input type=\"text\" [value]=\"welcomeText\"/>\n  ",
+            template: "\n  <h1>Helo {{title}}!</h1>\n  <my-tutorial></my-tutorial>\n  ",
         }), 
         __metadata('design:paramtypes', [])
     ], AppComponent);
