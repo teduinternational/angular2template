@@ -11,12 +11,14 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var TutorialComponent = (function () {
     function TutorialComponent() {
-        this.title = "This TEDU Angular2 Tutorial component";
+        this.showLineIf = false;
+        this.color = "23232";
+        this.colors = ["red", "green", "blue"];
     }
     TutorialComponent = __decorate([
         core_1.Component({
             selector: 'my-tutorial',
-            template: "\n    <h2>{{title}}</h2>\n    <input type=\"text\" [(ngModel)] = \"fname\" />\n   <input type=\"text\" [(ngModel)] = \"lname\" />\n   <br>\n   Full name: {{fname}} {{lname}}\n    "
+            template: "\n    <h2>{{title}}</h2>\n    <h3 *ngIf=\"showLineIf\">This ngIf directive line.</h3>\n    <div [ngSwitch]=\"color\">\n        <p *ngSwitchCase=\"'red'\">This line color is red</p>\n        <p *ngSwitchCase=\"'blue'\">This line color is blue</p>\n        <p *ngSwitchCase=\"'green'\">This line color is green</p>\n        <p *ngSwitchDefault>Invalid color</p>\n    </div>\n\n    <ul>\n        <li *ngFor=\"let color of colors\">{{color}}</li>\n    </ul>\n    "
         }), 
         __metadata('design:paramtypes', [])
     ], TutorialComponent);
