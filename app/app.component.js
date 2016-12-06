@@ -9,14 +9,29 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
+var tutorial_component_1 = require('./tutorial.component');
 var AppComponent = (function () {
     function AppComponent() {
         this.title = "TEDU Channel";
+        this.agreed = 0;
+        this.disgreed = 0;
+        this.names = ['Mr A', 'Mr B', 'Ms C', 'Mrs D'];
     }
+    AppComponent.prototype.onVoteParent = function (agree) {
+        if (agree)
+            this.agreed++;
+        else
+            this.disgreed++;
+        this.tutorialComponent.changeName('Name changed');
+    };
+    __decorate([
+        core_1.ViewChild(tutorial_component_1.TutorialComponent), 
+        __metadata('design:type', tutorial_component_1.TutorialComponent)
+    ], AppComponent.prototype, "tutorialComponent", void 0);
     AppComponent = __decorate([
         core_1.Component({
             selector: 'my-app',
-            template: "\n  <h1>Helo {{title}}!</h1>\n  <my-tutorial></my-tutorial>\n  ",
+            template: "\n  <h1>Helo {{title}}!</h1>\n  <p>Agree: {{agreed}}. Disgree: {{disgreed}}\n  <my-tutorial *ngFor=\"let item of names\" [name]=\"item\" (onVote)=\"onVoteParent($event)\"></my-tutorial>\n  ",
         }), 
         __metadata('design:paramtypes', [])
     ], AppComponent);

@@ -11,22 +11,28 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var TutorialComponent = (function () {
     function TutorialComponent() {
-        this.cone = true;
-        this.ctwo = true;
-        this.style = "italic";
-        this.size = "30px";
+        this.onVote = new core_1.EventEmitter();
+        this.voted = false;
     }
-    TutorialComponent.prototype.toggle = function () {
-        this.cone = !this.cone;
-        this.ctwo = !this.ctwo;
+    TutorialComponent.prototype.changeName = function (name) {
+        this.name = name;
     };
+    TutorialComponent.prototype.vote = function (isVoted) {
+        this.onVote.emit(isVoted);
+        this.voted = true;
+    };
+    __decorate([
+        core_1.Input(), 
+        __metadata('design:type', String)
+    ], TutorialComponent.prototype, "name", void 0);
+    __decorate([
+        core_1.Output(), 
+        __metadata('design:type', Object)
+    ], TutorialComponent.prototype, "onVote", void 0);
     TutorialComponent = __decorate([
         core_1.Component({
             selector: 'my-tutorial',
-            template: "\n    <h2>{{title}}</h2>\n    <p [ngClass]=\"{classOne:cone,classTwo:ctwo}\">This ngClass apply style</p>\n    <button (click)=\"toggle()\">Toggle</button>\n    <p [ngStyle]=\"{'font-style':style,'font-size':size}\">This paragaph will be apply to ngStyle</p>\n    ",
-            styles: [
-                "\n        .classOne{\n            color:yellow;\n        }\n        .classTwo{\n            background-color:black;\n        }\n        "
-            ]
+            template: "\n    <h2>{{title}}</h2>\n    <p>Child component: {{name}}</p>\n    <button [disabled]=\"voted\" (click)=\"vote(true)\">Agree</button>\n    <button [disabled]=\"voted\" (click)=\"vote(false)\">Disgree</button>\n    <p>{{voted}}</p>\n    "
         }), 
         __metadata('design:paramtypes', [])
     ], TutorialComponent);
