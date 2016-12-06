@@ -1,26 +1,29 @@
-import { Component,ViewChild } from '@angular/core';
-import {TutorialComponent} from './tutorial.component';
+import { Component, ViewChild } from '@angular/core';
+import { TutorialComponent } from './tutorial.component';
 @Component({
   selector: 'my-app',
   template: `
   <h1>Helo {{title}}!</h1>
-  <p>Agree: {{agreed}}. Disgree: {{disgreed}}
-  <my-tutorial *ngFor="let item of names" [name]="item" (onVote)="onVoteParent($event)"></my-tutorial>
+  <input type="text" #textName (keyup)="0" />
+  <p>Agree number: {{agree}}. Disgree: {{disgree}}</p>
+  <button (click)="changeName()">Change name</button>
+  <my-tutorial *ngFor="let person of names" [name]="person" (onVote)="parentVote($event)"></my-tutorial>
   `,
 })
 export class AppComponent {
   public title = "TEDU Channel"
-  public agreed: number = 0;
-  public disgreed: number = 0;
+  public agree: number = 0;
+  public disgree: number = 0;
+  public names = ['Mr A','Mr B','Mr C','Mr D'];
 
   @ViewChild(TutorialComponent)
-  private tutorialComponent : TutorialComponent;
+  private tutorialComponent: TutorialComponent;
 
-  public names = ['Mr A','Mr B','Ms C','Mrs D'];
-
-  onVoteParent(agree:boolean){
-      if(agree) this.agreed ++;
-      else this.disgreed++;
-      this.tutorialComponent.changeName('Name changed');
+  parentVote(agree: boolean) {
+    if(agree) this.agree++;
+    else this.disgree++;
+  }
+  changeName(){
+    this.tutorialComponent.setName('Change name in Parent');
   }
 }

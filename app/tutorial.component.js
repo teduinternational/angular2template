@@ -14,12 +14,12 @@ var TutorialComponent = (function () {
         this.onVote = new core_1.EventEmitter();
         this.voted = false;
     }
-    TutorialComponent.prototype.changeName = function (name) {
+    TutorialComponent.prototype.setName = function (name) {
         this.name = name;
     };
-    TutorialComponent.prototype.vote = function (isVoted) {
-        this.onVote.emit(isVoted);
+    TutorialComponent.prototype.vote = function (agree) {
         this.voted = true;
+        this.onVote.emit(agree);
     };
     __decorate([
         core_1.Input(), 
@@ -32,7 +32,7 @@ var TutorialComponent = (function () {
     TutorialComponent = __decorate([
         core_1.Component({
             selector: 'my-tutorial',
-            template: "\n    <h2>{{title}}</h2>\n    <p>Child component: {{name}}</p>\n    <button [disabled]=\"voted\" (click)=\"vote(true)\">Agree</button>\n    <button [disabled]=\"voted\" (click)=\"vote(false)\">Disgree</button>\n    <p>{{voted}}</p>\n    "
+            template: "\n    <h2>{{title}}</h2>\n    <p>Child component: {{name}}</p>\n\n    <button [disabled]=\"voted\" (click)=\"vote(true)\">Agree</button>\n    <button [disabled]=\"voted\" (click)=\"vote(false)\">Disgree</button>\n    Result: {{voted}}\n    "
         }), 
         __metadata('design:paramtypes', [])
     ], TutorialComponent);

@@ -13,16 +13,18 @@ var tutorial_component_1 = require('./tutorial.component');
 var AppComponent = (function () {
     function AppComponent() {
         this.title = "TEDU Channel";
-        this.agreed = 0;
-        this.disgreed = 0;
-        this.names = ['Mr A', 'Mr B', 'Ms C', 'Mrs D'];
+        this.agree = 0;
+        this.disgree = 0;
+        this.names = ['Mr A', 'Mr B', 'Mr C', 'Mr D'];
     }
-    AppComponent.prototype.onVoteParent = function (agree) {
+    AppComponent.prototype.parentVote = function (agree) {
         if (agree)
-            this.agreed++;
+            this.agree++;
         else
-            this.disgreed++;
-        this.tutorialComponent.changeName('Name changed');
+            this.disgree++;
+    };
+    AppComponent.prototype.changeName = function () {
+        this.tutorialComponent.setName('Change name in Parent');
     };
     __decorate([
         core_1.ViewChild(tutorial_component_1.TutorialComponent), 
@@ -31,7 +33,7 @@ var AppComponent = (function () {
     AppComponent = __decorate([
         core_1.Component({
             selector: 'my-app',
-            template: "\n  <h1>Helo {{title}}!</h1>\n  <p>Agree: {{agreed}}. Disgree: {{disgreed}}\n  <my-tutorial *ngFor=\"let item of names\" [name]=\"item\" (onVote)=\"onVoteParent($event)\"></my-tutorial>\n  ",
+            template: "\n  <h1>Helo {{title}}!</h1>\n  <input type=\"text\" #textName (keyup)=\"0\" />\n  <p>Agree number: {{agree}}. Disgree: {{disgree}}</p>\n  <button (click)=\"changeName()\">Change name</button>\n  <my-tutorial *ngFor=\"let person of names\" [name]=\"person\" (onVote)=\"parentVote($event)\"></my-tutorial>\n  ",
         }), 
         __metadata('design:paramtypes', [])
     ], AppComponent);
