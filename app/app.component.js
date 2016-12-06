@@ -9,31 +9,19 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var tutorial_component_1 = require('./tutorial.component');
 var AppComponent = (function () {
     function AppComponent() {
-        this.title = "TEDU Channel";
-        this.agree = 0;
-        this.disgree = 0;
-        this.names = ['Mr A', 'Mr B', 'Mr C', 'Mr D'];
+        this.title = "Hello TEDU Channel";
+        this.today = Date.now();
+        this.percentNumber = 1.3495;
+        this.e = 2.718281828459045;
+        this.object = { foo: 'bar', baz: 'qux', nested: { xyz: 3, numbers: [1, 2, 3, 4, 5] } };
+        this.collection = ['a', 'b', 'c', 'd'];
     }
-    AppComponent.prototype.parentVote = function (agree) {
-        if (agree)
-            this.agree++;
-        else
-            this.disgree++;
-    };
-    AppComponent.prototype.changeName = function () {
-        this.tutorialComponent.setName('Change name in Parent');
-    };
-    __decorate([
-        core_1.ViewChild(tutorial_component_1.TutorialComponent), 
-        __metadata('design:type', tutorial_component_1.TutorialComponent)
-    ], AppComponent.prototype, "tutorialComponent", void 0);
     AppComponent = __decorate([
         core_1.Component({
             selector: 'my-app',
-            template: "\n  <h1>Helo {{title}}!</h1>\n  <input type=\"text\" #textName (keyup)=\"0\" />\n  <p>Agree number: {{agree}}. Disgree: {{disgree}}</p>\n  <button (click)=\"changeName()\">Change name</button>\n  <my-tutorial *ngFor=\"let person of names\" [name]=\"person\" (onVote)=\"parentVote($event)\"></my-tutorial>\n  ",
+            template: "\n  <h1>{{title | uppercase}}!</h1>\n  <p>Date today: {{today | date:'shortDate' | uppercase}}</p>\n  <p>Percent: {{percentNumber | percent}}</p>\n  <p>e (3.1-5): {{e | number}}</p>\n  <pre>{{object | json}}</pre>\n  <p>2 power 10: {{ 2 |  exponentialStrength:2}}</p>\n  <ul>\n    <li *ngFor=\"let i of collection | slice:1:3\">{{i}}</li>\n  </ul>\n  <my-tutorial></my-tutorial>\n  ",
         }), 
         __metadata('design:paramtypes', [])
     ], AppComponent);

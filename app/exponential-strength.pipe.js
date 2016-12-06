@@ -9,17 +9,27 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var TutorialComponent = (function () {
-    function TutorialComponent() {
+/*
+ * Raise the value exponentially
+ * Takes an exponent argument that defaults to 1.
+ * Usage:
+ *   value | exponentialStrength:exponent
+ * Example:
+ *   {{ 2 |  exponentialStrength:10}}
+ *   formats to: 1024
+*/
+var ExponentialStrengthPipe = (function () {
+    function ExponentialStrengthPipe() {
     }
-    TutorialComponent = __decorate([
-        core_1.Component({
-            selector: 'my-tutorial',
-            template: "\n    <h2>{{title}}</h2>\n    "
-        }), 
+    ExponentialStrengthPipe.prototype.transform = function (value, exponent) {
+        var exp = parseFloat(exponent);
+        return Math.pow(value, isNaN(exp) ? 1 : exp);
+    };
+    ExponentialStrengthPipe = __decorate([
+        core_1.Pipe({ name: 'exponentialStrength' }), 
         __metadata('design:paramtypes', [])
-    ], TutorialComponent);
-    return TutorialComponent;
+    ], ExponentialStrengthPipe);
+    return ExponentialStrengthPipe;
 }());
-exports.TutorialComponent = TutorialComponent;
-//# sourceMappingURL=tutorial.component.js.map
+exports.ExponentialStrengthPipe = ExponentialStrengthPipe;
+//# sourceMappingURL=exponential-strength.pipe.js.map
