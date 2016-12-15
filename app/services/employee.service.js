@@ -9,27 +9,24 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var platform_browser_1 = require('@angular/platform-browser');
-var app_component_1 = require('./app.component');
-var forms_1 = require('@angular/forms');
-var employee_component_1 = require('./employee.component');
-var employee_service_1 = require('./services/employee.service');
-var AppModule = (function () {
-    function AppModule() {
+var EmployeeService = (function () {
+    function EmployeeService() {
     }
-    AppModule = __decorate([
-        core_1.NgModule({
-            imports: [platform_browser_1.BrowserModule, forms_1.FormsModule],
-            declarations: [
-                app_component_1.AppComponent,
-                employee_component_1.EmployeeListComponent,
-            ],
-            providers: [employee_service_1.EmployeeService],
-            bootstrap: [app_component_1.AppComponent]
-        }), 
+    EmployeeService.prototype.GetList = function () {
+        var employees = [
+            { Id: 1, Name: "Nguyen Van Tuan" },
+            { Id: 2, Name: "Nguyen Thi Huong" },
+            { Id: 3, Name: "Tran Van Hai" },
+            { Id: 4, Name: "Tran Van Hai 1" },
+            { Id: 5, Name: "Tran Van Hai 2" },
+        ];
+        return employees;
+    };
+    EmployeeService = __decorate([
+        core_1.Injectable(), 
         __metadata('design:paramtypes', [])
-    ], AppModule);
-    return AppModule;
+    ], EmployeeService);
+    return EmployeeService;
 }());
-exports.AppModule = AppModule;
-//# sourceMappingURL=app.module.js.map
+exports.EmployeeService = EmployeeService;
+//# sourceMappingURL=employee.service.js.map
