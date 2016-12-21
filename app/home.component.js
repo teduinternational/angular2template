@@ -9,21 +9,17 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require("@angular/core");
-var http_1 = require("@angular/http");
-require("rxjs/add/operator/map");
-var EmployeeService = (function () {
-    function EmployeeService(_http) {
-        this._http = _http;
-        this.apiUrl = "http://5854d76c1167031200ab4230.mockapi.io/api/employees";
+var HomeComponent = (function () {
+    function HomeComponent() {
     }
-    EmployeeService.prototype.GetList = function () {
-        return this._http.get(this.apiUrl).map(function (response) { return response.json(); });
-    };
-    return EmployeeService;
+    return HomeComponent;
 }());
-EmployeeService = __decorate([
-    core_1.Injectable(),
-    __metadata("design:paramtypes", [http_1.Http])
-], EmployeeService);
-exports.EmployeeService = EmployeeService;
-//# sourceMappingURL=employee.service.js.map
+HomeComponent = __decorate([
+    core_1.Component({
+        selector: 'home-component',
+        template: "<h2>This is home component</h2>"
+    }),
+    __metadata("design:paramtypes", [])
+], HomeComponent);
+exports.HomeComponent = HomeComponent;
+//# sourceMappingURL=home.component.js.map
