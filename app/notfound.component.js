@@ -9,22 +9,17 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require("@angular/core");
-var router_1 = require("@angular/router");
-var HomeComponent = (function () {
-    function HomeComponent(router) {
-        this.router = router;
+var NotFoundComponent = (function () {
+    function NotFoundComponent() {
     }
-    HomeComponent.prototype.GotoEmployee = function () {
-        this.router.navigate(['employees']);
-    };
-    return HomeComponent;
+    return NotFoundComponent;
 }());
-HomeComponent = __decorate([
+NotFoundComponent = __decorate([
     core_1.Component({
-        selector: 'home-component',
-        template: "\n    <h2>This is home component</h2>\n    <button (click)=\"GotoEmployee()\">Go to employees</button>\n    "
+        selector: 'not-found-component',
+        template: "<h2>404 Error</h2>"
     }),
-    __metadata("design:paramtypes", [router_1.Router])
-], HomeComponent);
-exports.HomeComponent = HomeComponent;
-//# sourceMappingURL=home.component.js.map
+    __metadata("design:paramtypes", [])
+], NotFoundComponent);
+exports.NotFoundComponent = NotFoundComponent;
+//# sourceMappingURL=notfound.component.js.map
