@@ -9,6 +9,9 @@ import { HttpModule } from '@angular/http';
 import { appRoutes } from './app.routes';
 import { NotFoundComponent } from './notfound.component';
 import { EmployeeDetailComponent } from './employee-detail.component'
+import { EmployeeOverviewComponent } from './employee-overview.component'
+import { EmployeeProjectsComponent } from './employee-projects.component'
+
 
 @NgModule({
   imports: [BrowserModule, FormsModule, HttpModule, appRoutes],
@@ -18,7 +21,10 @@ import { EmployeeDetailComponent } from './employee-detail.component'
     EmployeeListComponent,
     HomeComponent,
     NotFoundComponent,
-    EmployeeDetailComponent
+    EmployeeProjectsComponent,
+    EmployeeOverviewComponent,
+    EmployeeDetailComponent,
+
   ],
   providers: [EmployeeService],
   bootstrap: [AppComponent]

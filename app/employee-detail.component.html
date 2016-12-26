@@ -16,4 +16,9 @@
         <td>{{employee.status}}</td>
     </tr>
 </table>
+<a class="btn btn-primary" [routerLink]="['overview']">Overview</a>
+<a class="btn btn-primary" [routerLink]="['projects']">Projects</a>
+
 <a class="btn btn-default" [routerLink]="['/employees']">Go back</a>
+
+<router-outlet></router-outlet>

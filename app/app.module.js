@@ -19,6 +19,8 @@ var http_1 = require("@angular/http");
 var app_routes_1 = require("./app.routes");
 var notfound_component_1 = require("./notfound.component");
 var employee_detail_component_1 = require("./employee-detail.component");
+var employee_overview_component_1 = require("./employee-overview.component");
+var employee_projects_component_1 = require("./employee-projects.component");
 var AppModule = (function () {
     function AppModule() {
     }
@@ -32,7 +34,9 @@ AppModule = __decorate([
             employee_component_1.EmployeeListComponent,
             home_component_1.HomeComponent,
             notfound_component_1.NotFoundComponent,
-            employee_detail_component_1.EmployeeDetailComponent
+            employee_projects_component_1.EmployeeProjectsComponent,
+            employee_overview_component_1.EmployeeOverviewComponent,
+            employee_detail_component_1.EmployeeDetailComponent,
         ],
         providers: [employee_service_1.EmployeeService],
         bootstrap: [app_component_1.AppComponent]
