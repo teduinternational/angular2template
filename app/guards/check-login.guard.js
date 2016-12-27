@@ -9,26 +9,22 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require("@angular/core");
-var login_service_1 = require("./services/login.service");
-var AppComponent = (function () {
-    function AppComponent(loginService) {
+var login_service_1 = require("../services/login.service");
+var CheckLoginGuard = (function () {
+    function CheckLoginGuard(loginService) {
         this.loginService = loginService;
     }
-    AppComponent.prototype.ngOnInit = function () {
-        this.isLoggedin = this.loginService.IsLogged();
+    CheckLoginGuard.prototype.canActivate = function () {
+        var status = this.loginService.IsLogged();
+        if (status == false)
+            alert('You don\'t have permission access to this page');
+        return status;
     };
-    AppComponent.prototype.Logout = function () {
-        this.loginService.SetLogin(false);
-        alert('Logged out');
-    };
-    return AppComponent;
+    return CheckLoginGuard;
 }());
-AppComponent = __decorate([
-    core_1.Component({
-        selector: 'my-app',
-        templateUrl: 'app/app.component.html',
-    }),
+CheckLoginGuard = __decorate([
+    core_1.Injectable(),
     __metadata("design:paramtypes", [login_service_1.LoginService])
-], AppComponent);
-exports.AppComponent = AppComponent;
-//# sourceMappingURL=app.component.js.map
+], CheckLoginGuard);
+exports.CheckLoginGuard = CheckLoginGuard;
+//# sourceMappingURL=check-login.guard.js.map

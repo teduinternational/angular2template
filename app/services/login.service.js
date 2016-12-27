@@ -9,26 +9,20 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require("@angular/core");
-var login_service_1 = require("./services/login.service");
-var AppComponent = (function () {
-    function AppComponent(loginService) {
-        this.loginService = loginService;
+var LoginService = (function () {
+    function LoginService() {
     }
-    AppComponent.prototype.ngOnInit = function () {
-        this.isLoggedin = this.loginService.IsLogged();
+    LoginService.prototype.IsLogged = function () {
+        return this._isLoggedIn;
     };
-    AppComponent.prototype.Logout = function () {
-        this.loginService.SetLogin(false);
-        alert('Logged out');
+    LoginService.prototype.SetLogin = function (isLoggedIn) {
+        this._isLoggedIn = isLoggedIn;
     };
-    return AppComponent;
+    return LoginService;
 }());
-AppComponent = __decorate([
-    core_1.Component({
-        selector: 'my-app',
-        templateUrl: 'app/app.component.html',
-    }),
-    __metadata("design:paramtypes", [login_service_1.LoginService])
-], AppComponent);
-exports.AppComponent = AppComponent;
-//# sourceMappingURL=app.component.js.map
+LoginService = __decorate([
+    core_1.Injectable(),
+    __metadata("design:paramtypes", [])
+], LoginService);
+exports.LoginService = LoginService;
+//# sourceMappingURL=login.service.js.map
