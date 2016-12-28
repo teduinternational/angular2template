@@ -24,13 +24,29 @@ var EmployeeListComponent = (function () {
             console.log(_this.currentPage);
             console.log(params['filter']);
         });
+        this.LoadData();
+        this.pages = [1, 2, 3, 4, 5];
+    };
+    EmployeeListComponent.prototype.Delete = function (id) {
+        var _this = this;
+        var confirmResult = confirm("Are you sure to delete employee?");
+        if (confirmResult) {
+            this.employeeService.Delete(id).subscribe(function (response) {
+                if (response) {
+                    alert('Delete ok');
+                    _this.LoadData();
+                }
+            });
+        }
+    };
+    EmployeeListComponent.prototype.LoadData = function () {
+        var _this = this;
         this.employeeService.GetList().subscribe(function (response) {
             _this.employees = response;
             console.log(response);
         }, function (error) {
             console.log(error);
         });
-        this.pages = [1, 2, 3, 4, 5];
     };
     return EmployeeListComponent;
 }());
