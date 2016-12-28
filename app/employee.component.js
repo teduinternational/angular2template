@@ -27,6 +27,15 @@ var EmployeeListComponent = (function () {
         this.LoadData();
         this.pages = [1, 2, 3, 4, 5];
     };
+    EmployeeListComponent.prototype.Search = function () {
+        var _this = this;
+        this.employeeService.Search(this.keyword).subscribe(function (response) {
+            _this.employees = response;
+            console.log(response);
+        }, function (error) {
+            console.log(error);
+        });
+    };
     EmployeeListComponent.prototype.Delete = function (id) {
         var _this = this;
         var confirmResult = confirm("Are you sure to delete employee?");

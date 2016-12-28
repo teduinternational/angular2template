@@ -1,5 +1,15 @@
 <div class="row">
-    <a [routerLink]="['/employee-add']" class="btn btn-success">Add new</a>
+    <div class="col-md-12">
+          <div class="col-md-4">
+             <input type="text" [(ngModel)]="keyword" name="keyword" />
+             <button (click)="Search()">Search</button>
+
+        </div>
+        <div class="col-md-4">
+                <a [routerLink]="['/employee-add']" class="btn btn-success">Add new</a>
+
+        </div>
+    </div>
 </div>
 <table class="table">
     <thead>
