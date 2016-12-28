@@ -16,7 +16,6 @@ import {LoginService} from './services/login.service';
 import {CheckLoginGuard} from './guards/check-login.guard';
 import {CheckSaveFormGuard} from './guards/check-save-form.guard';
 import { EmployeeEditComponent } from './employee-edit.component'
-import { EmployeeAddComponent } from './employee-add.component'
 
 @NgModule({
   imports: [BrowserModule, FormsModule, HttpModule, appRoutes],
@@ -30,8 +29,7 @@ import { EmployeeAddComponent } from './employee-add.component'
     EmployeeOverviewComponent,
     EmployeeDetailComponent,
     LoginComponent,
-    EmployeeEditComponent,
-    EmployeeAddComponent
+    EmployeeEditComponent
 
   ],
   providers: [EmployeeService,LoginService,CheckLoginGuard,CheckSaveFormGuard],

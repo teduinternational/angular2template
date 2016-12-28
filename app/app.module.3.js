@@ -26,7 +26,6 @@ var login_service_1 = require("./services/login.service");
 var check_login_guard_1 = require("./guards/check-login.guard");
 var check_save_form_guard_1 = require("./guards/check-save-form.guard");
 var employee_edit_component_1 = require("./employee-edit.component");
-var employee_add_component_1 = require("./employee-add.component");
 var AppModule = (function () {
     function AppModule() {
     }
@@ -44,8 +43,7 @@ AppModule = __decorate([
             employee_overview_component_1.EmployeeOverviewComponent,
             employee_detail_component_1.EmployeeDetailComponent,
             login_component_1.LoginComponent,
-            employee_edit_component_1.EmployeeEditComponent,
-            employee_add_component_1.EmployeeAddComponent
+            employee_edit_component_1.EmployeeEditComponent
         ],
         providers: [employee_service_1.EmployeeService, login_service_1.LoginService, check_login_guard_1.CheckLoginGuard, check_save_form_guard_1.CheckSaveFormGuard],
         bootstrap: [app_component_1.AppComponent]
@@ -53,4 +51,4 @@ AppModule = __decorate([
     __metadata("design:paramtypes", [])
 ], AppModule);
 exports.AppModule = AppModule;
-//# sourceMappingURL=app.module.js.map
+//# sourceMappingURL=app.module.3.js.map
