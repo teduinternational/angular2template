@@ -9,26 +9,22 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require("@angular/core");
-var login_service_1 = require("./services/login.service");
-var AppComponent = (function () {
-    function AppComponent(loginService) {
-        this.loginService = loginService;
+var router_1 = require("@angular/router");
+var HomeComponent = (function () {
+    function HomeComponent(router) {
+        this.router = router;
     }
-    AppComponent.prototype.ngOnInit = function () {
-        this.isLoggedin = this.loginService.IsLogged();
+    HomeComponent.prototype.GotoEmployee = function () {
+        this.router.navigate(['employees']);
     };
-    AppComponent.prototype.Logout = function () {
-        this.loginService.SetLogin(false);
-        alert('Logged out');
-    };
-    return AppComponent;
+    return HomeComponent;
 }());
-AppComponent = __decorate([
+HomeComponent = __decorate([
     core_1.Component({
-        selector: 'my-app',
-        templateUrl: 'app/app.component.html',
+        selector: 'home-component',
+        template: "\n    <h2>This is home component</h2>\n    <button (click)=\"GotoEmployee()\">Go to employees</button>\n    "
     }),
-    __metadata("design:paramtypes", [login_service_1.LoginService])
-], AppComponent);
-exports.AppComponent = AppComponent;
-//# sourceMappingURL=app.component.js.map
+    __metadata("design:paramtypes", [router_1.Router])
+], HomeComponent);
+exports.HomeComponent = HomeComponent;
+//# sourceMappingURL=home.component.js.map

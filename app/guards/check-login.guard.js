@@ -8,18 +8,23 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var core_1 = require('@angular/core');
-var TutorialComponent = (function () {
-    function TutorialComponent() {
+var core_1 = require("@angular/core");
+var login_service_1 = require("../services/login.service");
+var CheckLoginGuard = (function () {
+    function CheckLoginGuard(loginService) {
+        this.loginService = loginService;
     }
-    TutorialComponent = __decorate([
-        core_1.Component({
-            selector: 'my-tutorial',
-            template: "<h2>This TEDU Angular2 Tutorial component</h2>\n              <h4>Sub Component</h4>\n    "
-        }), 
-        __metadata('design:paramtypes', [])
-    ], TutorialComponent);
-    return TutorialComponent;
+    CheckLoginGuard.prototype.canActivate = function () {
+        var status = this.loginService.IsLogged();
+        if (status == false)
+            alert('You don\'t have permission access to this page');
+        return status;
+    };
+    return CheckLoginGuard;
 }());
-exports.TutorialComponent = TutorialComponent;
-//# sourceMappingURL=tutorial.component.js.map
+CheckLoginGuard = __decorate([
+    core_1.Injectable(),
+    __metadata("design:paramtypes", [login_service_1.LoginService])
+], CheckLoginGuard);
+exports.CheckLoginGuard = CheckLoginGuard;
+//# sourceMappingURL=check-login.guard.js.map

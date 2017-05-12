@@ -1,0 +1,21 @@
+<table class="table">
+    <thead>
+        <tr>
+            <td>Name</td>
+            <td>Age</td>
+            <td>Status</td>
+            <td>Created At</td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let employee of employees">
+            <td>{{employee.name}}</td>
+            <td>{{employee.age}}</td>
+            <td>{{employee.status}}</td>
+            <td>{{employee.createdAt | date}}</td>
+            <td>
+                <a [routerLink]="['/employee-detail',employee.id]">Show Detail</a>
+            </td>
+        </tr>
+    </tbody>
+</table>

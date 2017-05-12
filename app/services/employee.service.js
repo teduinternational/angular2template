@@ -9,26 +9,24 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require("@angular/core");
-var login_service_1 = require("./services/login.service");
-var AppComponent = (function () {
-    function AppComponent(loginService) {
-        this.loginService = loginService;
+var http_1 = require("@angular/http");
+require("rxjs/add/operator/map");
+var EmployeeService = (function () {
+    function EmployeeService(_http) {
+        this._http = _http;
+        this.apiUrl = "http://5854d76c1167031200ab4230.mockapi.io/api/employees/";
     }
-    AppComponent.prototype.ngOnInit = function () {
-        this.isLoggedin = this.loginService.IsLogged();
+    EmployeeService.prototype.GetList = function () {
+        return this._http.get(this.apiUrl).map(function (response) { return response.json(); });
     };
-    AppComponent.prototype.Logout = function () {
-        this.loginService.SetLogin(false);
-        alert('Logged out');
+    EmployeeService.prototype.GetSingle = function (id) {
+        return this._http.get(this.apiUrl + id).map(function (response) { return response.json(); });
     };
-    return AppComponent;
+    return EmployeeService;
 }());
-AppComponent = __decorate([
-    core_1.Component({
-        selector: 'my-app',
-        templateUrl: 'app/app.component.html',
-    }),
-    __metadata("design:paramtypes", [login_service_1.LoginService])
-], AppComponent);
-exports.AppComponent = AppComponent;
-//# sourceMappingURL=app.component.js.map
+EmployeeService = __decorate([
+    core_1.Injectable(),
+    __metadata("design:paramtypes", [http_1.Http])
+], EmployeeService);
+exports.EmployeeService = EmployeeService;
+//# sourceMappingURL=employee.service.js.map
